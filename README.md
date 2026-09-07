@@ -1,5 +1,7 @@
 # NEBULA STRIKE
 
+> **▶ Play it live:** https://unaysllc.github.io/nebula-strike/
+
 A wave-based neon space shooter built in **pure HTML5 + Canvas + WebAudio** — zero dependencies, zero build step. Just open `index.html` in a browser and fly.
 
 ## Features
