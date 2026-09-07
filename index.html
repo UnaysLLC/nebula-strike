@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>NEBULA STRIKE</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="hud-top">
+    <div class="hud-block left">
+      <div class="hud-label">SCORE</div>
+      <div id="score">0</div>
+    </div>
+    <div class="hud-block center">
+      <div class="hud-label">WAVE <span id="wave">1</span></div>
+      <div id="combo" class="hidden">COMBO <span id="combo-mult">x1</span></div>
+    </div>
+    <div class="hud-block right">
+      <div class="hud-label">HIGH</div>
+      <div id="highscore">0</div>
+    </div>
+  </div>
+  <div id="hud-lives"></div>
+  <div id="boss-bar" class="hidden">
+    <span id="boss-name">BOSS</span>
+    <div id="boss-track"><div id="boss-fill"></div></div>
+  </div>
+</div>
+
+<!-- Main menu -->
+<div id="menu" class="overlay">
+  <h1>NEBULA<span>STRIKE</span></h1>
+  <p class="tagline">Survive the waves. Feed the combo. Rule the void.</p>
+  <button id="start-btn" class="btn primary">LAUNCH</button>
+  <div class="controls">
+    <div><b>MOVE</b> &nbsp;WASD / Arrows</div>
+    <div><b>FIRE</b> &nbsp;Auto</div>
+    <div><b>NUKE</b> &nbsp;Space</div>
+    <div><b>PAUSE</b> P / Esc</div>
+    <div><b>MUTE</b> &nbsp;M</div>
+  </div>
+  <p class="scores-title">TOP PILOTS</p>
+  <ol id="highscores"></ol>
+</div>
+
+<!-- Pause -->
+<div id="pause" class="overlay hidden">
+  <h2>PAUSED</h2>
+  <button id="resume-btn" class="btn primary">RESUME</button>
+  <button id="quit-btn" class="btn">MAIN MENU</button>
+</div>
+
+<!-- Game over -->
+<div id="gameover" class="overlay hidden">
+  <h2>SHIP DESTROYED</h2>
+  <div class="final-score">SCORE <span id="final-score">0</span></div>
+  <div id="new-record" class="hidden">&#9733; NEW HIGH SCORE &#9733;</div>
+  <button id="restart-btn" class="btn primary">FLY AGAIN</button>
+  <button id="menu-btn" class="btn">MAIN MENU</button>
+</div>
+
+<div id="wave-banner" class="hidden"></div>
+
+<script src="js/audio.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/entities.js"></script>
+<script src="js/game.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
