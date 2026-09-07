@@ -55,7 +55,7 @@ const Ent = (() => {
       this.speed = c.speed * (1 + (wave - 1) * 0.03);
       this.t = Math.random() * 6.28;
       this.phase = Math.random() * 6.28;
-      this.vy = 45 + Math.random() * 45;
+      this.vy = 55 + Math.random() * 55;
       this.charge = 0;
       this.fireT = 1.2 + Math.random() * 1.6;
       this.patternT = 0;

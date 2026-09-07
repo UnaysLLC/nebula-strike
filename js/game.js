@@ -26,7 +26,7 @@ const Game = (() => {
 
   // input
   const keys = {};
-  let mouse = { x: 0, y: 0, lastMove: -10 };
+  let mouse = { x: 0, y: 0, lastMove: -Infinity };
   let touchTarget = null;
   let muteKeyHeld = false;
 
@@ -128,7 +128,7 @@ const Game = (() => {
     shakeMag = 0; flash = 0;
     player = new Ent.Player(W / 2, H - 90);
     boss = null;
-    spawnBudget = 0; spawnT = 0; waveState = 'idle'; waveT = 1.2;
+    spawnBudget = 0; spawnT = 0; waveState = 'idle'; waveT = 0.9;
     Particles.reset();
     el.bossBar.classList.add('hidden');
     el.combo.classList.add('hidden');
@@ -184,7 +184,7 @@ const Game = (() => {
     wave++;
     el.wave.textContent = wave;
     spawnBudget = Math.min(45, 7 + wave * 3);
-    spawnT = 1.6;
+    spawnT = 1.1;
     waveState = 'active';
     if (wave % 5 === 0) {
       boss = new Ent.Enemy('boss', W / 2, -80, wave);
@@ -440,7 +440,7 @@ const Game = (() => {
       } else {
         spawnT -= dt;
         if (spawnT <= 0 && spawnBudget > 0) {
-          spawnT = Math.max(0.3, 1.05 - wave * 0.04);
+          spawnT = Math.max(0.28, 0.95 - wave * 0.04);
           const t = pickSpawnType();
           const c = Ent.TYPES[t].cost;
           if (spawnBudget >= c) {
@@ -599,7 +599,7 @@ const Game = (() => {
   }
 
   function shootPlayer() {
-    const x = player.x, y = player.y - player.r;
+    const x = player.x, y = Math.max(player.y - player.r, 16);
     const sp = 760;
     const angles = [];
     angles.push(0);
